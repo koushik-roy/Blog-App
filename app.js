@@ -5,7 +5,7 @@ var express = require("express"),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose");
 
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 
 // mongoose.connect("mongodb://localhost:27017/blogApp",{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.connect(
@@ -109,9 +109,9 @@ app.delete("/blogs/:id", function (req, res) {
   });
 });
 
-// app.listen(5000, function () {
-//   console.log("running");
-// });
+app.listen(5000, function () {
+  console.log("running");
+});
 
 module.exports = app;
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
