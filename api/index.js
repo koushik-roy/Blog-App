@@ -1,6 +1,7 @@
 var express = require("express"),
   methodOverride = require("method-override"),
   expressSanitizer = require("express-sanitizer"),
+  path = require("path"),
   app = express(),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose");
@@ -13,6 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 );
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../views"));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
